@@ -1,0 +1,32 @@
+<template name="articleLists">
+  <div class="col-md-12 column">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="table-responsive">
+          <table class="table table-condensed table-hover table-striped">
+            <thead>
+            </thead>
+            <tbody>
+              {{#each articles}}
+              <tr>
+                <td class="col-md-1">
+                  {{#if stared}}
+                  <span class="glyphicon glyphicon-star"></span>
+                  {{else}}
+                  <span class="glyphicon glyphicon-star-empty"></span>
+                  {{/if}}
+                </td>
+                <td class="col-md-3 col-sm-5 col-xs-9"><strong>{{title}}</strong></td>
+                <td class="col-md-6 hidden-xs">{{description}}</td>
+                <td class="col-md-2 hidden-sm hidden-xs">{{date}}</td>
+              </tr>
+              {{/each}}
+            </tbody>
+            <tfoot>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
