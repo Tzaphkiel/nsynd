@@ -3,11 +3,6 @@
 /**
  * Base model elements
  */
-Tag = new Mongo.Collection("tag");
-Category = new Mongo.Collection("category");
-Feed = new Mongo.Collection("feed");
-Article = new Mongo.Collection("article");
-
 if (Tag.find().count() === 0) {
   var tags = [{label: "science"}, {label: "electronics"}, {label: "art"}, {label: "design"}, {label: "book"}, {label: "music"}, {label: "programming"}, {label: "photography"}, {label: "business"}];
   _.each(tags, function(tag) {
@@ -17,7 +12,7 @@ if (Tag.find().count() === 0) {
 
 if (Category.find().count() === 0) {
   //ATT: put hierarchy dependent categ after their parent creation! (see condition code below)
-  var categs = [{label: "Electronics", collapsed: true}, {label: "Programming", collapsed: true}, {label: "Photography", collapsed: true}, {label: "Business", collapsed: true}, {label: "Other", collapsed: true}, {label: "Electronics", collapsed: true, parentCat: "Programming"}];
+  var categs = [{label: "Electronics"}, {label: "Programming"}, {label: "Photography"}, {label: "Business"}, {label: "Other"}, {label: "Electronics", parentCat: "Programming"}];
   _.each(categs, function(categ) {
     if (categ.parentCat !== undefined) {
       var parentCateg = Category.find({label: categ.parentCat}).fetch()[0];
@@ -37,20 +32,17 @@ if (Feed.find().count() === 0) {
 }
 
 if (Article.find().count() === 0) {
-  //Article.insert({
-  //});
+  var feed = Feed.find().fetch()[0];
+  var articles = [{refFeed: feed._id, url: "", shortContent: "", fullContent: "", thumb: null, title: "Some article title", description: "Some article description content that will summarize the article", date: "2014-10-22"}, {refFeed: feed._id, url: "", shortContent: "", fullContent: "", thumb: null, title: "Some other article title", description: "Some article description content that will summarize the article", date: "2014-10-22"}, {refFeed: feed._id, url: "", shortContent: "", fullContent: "", thumb: null, title: "Some article title", description: "Some article description content that will summarize the article", date: "2014-10-22"}, {refFeed: feed._id, url: "", shortContent: "", fullContent: "", thumb: null, title: "Some article title", description: "Some article alternate description content that will summarize this particular article", date: "2014-10-22"}, {refFeed: feed._id, url: "", shortContent: "", fullContent: "", thumb: null, title: "Some article title", description: "Some article description content that will summarize the article", date: "2014-10-22"}, {refFeed: feed._id, url: "", shortContent: "", fullContent: "", thumb: null, title: "Some article title", description: "Some article description content that will summarize the article", date: "2014-10-22"}, {refFeed: feed._id, url: "", shortContent: "", fullContent: "", thumb: null, title: "Some article title", description: "Some article description content that will summarize the article", date: "2014-10-22"}, {refFeed: feed._id, url: "", shortContent: "", fullContent: "", thumb: null, title: "Some article title", description: "Some article description content that will summarize the article", date: "2014-10-05"}, {refFeed: feed._id, url: "", shortContent: "", fullContent: "", thumb: null, title: "Some article title", description: "Some article description content that will summarize the article, Some article description content that will summarize the article", date: "2014-10-22"}, {refFeed: feed._id, url: "", shortContent: "", fullContent: "", thumb: null, title: "Some article title", description: "Some article description content that will summarize the article", date: "2014-10-12"}, {refFeed: feed._id, url: "", shortContent: "", fullContent: "", thumb: null, title: "Some article title", description: "Some article description content that will summarize the article", date: "2014-09-22"}, {refFeed: feed._id, url: "", shortContent: "", fullContent: "", thumb: null, title: "Some article title", description: "Some article description content that will summarize the article", date: "2014-08-23"}];
+  _.each(articles, function(article) {
+    Article.insert(article);
+  });
 }
 
 
 /**
  * User model elements
  */
-UserFeedTag = new Mongo.Collection("userFeedTag");
-UserArticleTag = new Mongo.Collection("userArticleTag");
-UserCategoryFeed = new Mongo.Collection("userCategoryFeed");
-UserFeed = new Mongo.Collection("userFeed");
-UserArticle = new Mongo.Collection("userArticle");
-
 if (UserFeedTag.find().count() === 0) {
   UserFeedTag.insert({
     
@@ -74,8 +66,10 @@ if (UserCategoryFeed.find().count() === 0) {
 }
 
 if (UserFeed.find().count() === 0) {
+  var feed = Feed.find().fetch()[0];
   UserFeed.insert({
-    
+    refUser: "leroyse",
+    refFeed: feed
   });
 }
 
