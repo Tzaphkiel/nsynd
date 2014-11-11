@@ -1,0 +1,32 @@
+<template name="pageHeader">
+  <div class="row clearfix">
+    <div class="col-md-12 column">
+      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> 
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            
+            <a class="navbar-brand" href="#">
+              <img alt="Brand" src="icons/icontexto-inside-rss-32.png">NSynd</a>
+          </div>
+          <!-- right stuff -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
+            </ul>
+            <p class="navbar-text navbar-right">Leroyse</p>
+            <ul class="nav nav-pills navbar-right">
+              <li role="presentation"><a href="{{pathFor 'articlesList'}}" ><span class="glyphicon glyphicon-list"></span></a></li>
+              <li role="presentation"><a href="{{pathFor 'articlesThumb'}}"><span class="glyphicon glyphicon-th-large"></span></a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div> <!-- cols -->
+  </div> 
+</template>

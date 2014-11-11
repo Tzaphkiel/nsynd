@@ -1,0 +1,29 @@
+<template name="layout">
+  <div class="container-fluid">
+  
+    <!-- Headers -->
+    {{> pageHeader }}
+    <!-- Headers end -->
+    
+    <!-- Content -->
+    <div class="row clearfix">
+      <!-- Content - Category nav -->
+      <div class="col-md-2 column">
+        {{> categoriesList}}
+      </div>
+      
+      <!-- Content - Article(s) -->
+      <div class="col-md-10 column">
+        {{> yield }}
+      </div>
+      
+    </div><!-- content row -->
+    
+    {{> pageFooter }}
+  </div> <!-- container-fluid -->
+  
+</template>
+
+
+
+
