@@ -1,0 +1,13 @@
+<template name="notFound">
+  <div class="not-found jumbotron">
+    <img src="icons/cry-bug-128.png" alt="Cry-bug" />
+    <h2>Ooops</h2>
+    <p>It looks like what you were attempting did not yield success...</p>
+    <p>Please try again as many times as you wish... when you are tired, try one of the following links:</p>
+    <ul class="nav nav-pills">
+      <li><a href="{{pathFor 'welcome'}}">Home</a></li>
+      <li><a href="{{pathFor 'articlesList'}}">Articles as a list</a></li>
+      <li><a href="{{pathFor 'articlesThumb'}}">Articles as a thumbnails</a></li>
+    </ul>
+  </div>
+</template>
