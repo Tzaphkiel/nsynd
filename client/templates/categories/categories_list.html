@@ -1,30 +1,57 @@
-<template name="categoriesList">
-  <div class="list-group">
-    <a href="#" class="list-group-item active">Home</a>
+<!-- @see: http://www.meteorpedia.com/read/Trees -->
 
-    <div class="list-group-item">
-      All items
-      <span class="badge">1000+</span>
-    </div>
+<template name="categoriesList">
+  
+  <div class="list-group text-center">
     
-    <div class="list-group-item">
-      <h4 class="list-group-item-heading">
-        <a class="list-group-item"><span class="badge">168</span>Main category</a> 
-      </h4>
-      <!--
-      <p class="list-group-item-text">
-        (optional description or more info) 
-      </p>
-      -->
-      <a class="list-group-item"><span class="badge">100</span>Sub category 1</a> 
-      <a class="list-group-item active"><span class="badge">60</span>Sub category 2</a> 
-      <a class="list-group-item"><span class="badge">8</span>Sub category 3</a> 
-    </div>
+    <div class="btn-toolbar" role="toolbar">
+      <div class="btn-group">
+        <a href="#" class="btn btn-default btn-sm" role="button" data-toggle="tooltip" data-placement="top" data-original-title="Configure the application">
+          <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+        </a>
+        <a href="#" class="btn btn-default btn-sm" role="button" data-toggle="tooltip" data-placement="top" data-original-title="Get some help on the application">
+          <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+        </a>
+      </div><!-- btn group -->
+
+      <div class="pull-right">
+        <div class="btn-group">
+          <a href="{{pathFor 'articlesThumb'}}" class="btn btn-default btn-sm" role="button" data-toggle="tooltip" data-placement="top" data-original-title="Display posts as thumbnails">
+            <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
+          </a>
+          <a href="{{pathFor 'articlesList'}}" class="btn btn-default btn-sm" role="button" data-toggle="tooltip" data-placement="top" data-original-title="Display posts as a list">
+            <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+          </a>
+        </div><!-- btn group -->
+      </div>
+    </div><!-- btn toolbar -->
     
-    <div class="list-group-item">
-      <span class="badge">14</span>Help
-    </div> <a class="list-group-item active"><span class="badge">14</span>Help</a>
-    
+  </div><!-- list-group text-center -->
+  
+  <!-- All & starred item -->
+  <div class="list-group">
+    <h4 class="list-group-item-heading"></h4>
+    <a class="list-group-item"><span class="badge">1000+</span>All items</a> 
+    <a class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span><span class="badge">200+</span>Stared Items</a> 
   </div>
+  
+  <!-- Subscriptions old style -->
+  <div class="list-group">
+    <div class="list-group-item">
+      <h4 class="list-group-item-heading">Subscriptions</h4>
+      <div id="tree" class="list-group"></div>
+    </div>
+  </div><!-- list-group categories' subscriptions -->
+  
+  <!-- Subscriptions new style -->
+  <div class="list-group">
+    <div class="list-group-item">
+      <h4 class="list-group-item-heading">Subscriptions</h4>
+      <ul class="list-group">
+        {{> categoriesListCateg}}
+      </ul><!-- list-group -->
+    </div>
+  </div><!-- list-group categories' subscriptions -->
+  
 </template>
       

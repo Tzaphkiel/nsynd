@@ -1,0 +1,7 @@
+<template name="categoriesListFeed">
+  {{#each feeds}}
+    <li class="list-group-item">
+      <a href="{{pathFor 'articlesList'}}">{{formatCategoryName}}</a>
+    </li>
+  {{/each}}
+</template>

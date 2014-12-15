@@ -1,0 +1,53 @@
+.treeview{
+  font-size: 0.8em;
+}
+.list-group-item{
+  cursor: pointer;
+}
+span.indent{
+  margin-left:0px;
+  margin-right:10px;
+}
+span.icon{
+  margin-right:5px;
+}
+
+/* FIXME to be corrected, does not display */
+.treeviewIconPlus{
+  /*background: url('icons/bullet_toggle_plus.png') center right no-repeat;*/
+  background: url('icons/arrow_state_blue_right.png') center right no-repeat;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 16px;
+  top: 1px;
+  /*position: relative;*/
+}
+/* FIXME to be corrected, does not display */
+.treeviewIconMinus{
+  /*background: url('icons/bullet_toggle_minus.png') ;*/
+  background: url('icons/arrow_state_blue_expanded.png') center right no-repeat;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 16px;
+  top: 1px;
+  /*position: relative;*/
+}
+.treeviewFolderIcon {
+  background: url('icons/folder.png') center right no-repeat;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 16px;
+  top: 1px;
+  /*position: relative;*/
+  
+}
+

@@ -1,0 +1,23 @@
+<template name="categoriesListCateg">
+  {{#each categories}}
+    <li class="list-group-item">
+      <span class="glyphicon {{#if isOpen}}glyphicon-chevron-down{{else}}glyphicon-chevron-right{{/if}}"></span>
+      <a href="{{pathFor 'category' this._id}}">{{formatCategoryName}}</a>
+      <span class="badge">{{this.categoryContentCount}}</span>
+      {{#if isOpen}}
+        {{#if isReady}}
+          {{#if hasChildren}}
+            <ul>
+              {{> categoriesListCateg}}
+              {{> categoriesListFeed}}
+            </ul>
+          {{else}}
+            <br />No feeds in this category (yet) !
+          {{/if}}
+        {{else}}
+          <span class="loading">loading...</span>
+        {{/if}}
+      {{/if}}
+    </li>
+  {{/each}}
+</template>

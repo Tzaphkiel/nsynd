@@ -12,12 +12,15 @@ if (Tag.find().count() === 0) {
 
 if (Category.find().count() === 0) {
   //ATT: put hierarchy dependent categ after their parent creation! (see condition code below)
-  var categs = [{label: "Electronics"}, {label: "Programming"}, {label: "Photography"}, {label: "Business"}, {label: "Other"}, {label: "Electronics", parentCat: "Programming"}];
+  var categs = [{label: "All"}, {label: "Electronics", parentCat: "All"}, {label: "Programming", parentCat: "All"}, {label: "Photography", parentCat: "All"}, {label: "Business", parentCat: "All"}, {label: "Other", parentCat: "All"}, {label: "Electronics", parentCat: "Programming"}];
   _.each(categs, function(categ) {
     if (categ.parentCat !== undefined) {
       var parentCateg = Category.find({label: categ.parentCat}).fetch()[0];
       categ.parentCat = parentCateg._id;
     }
+    else {
+      categ.parentCat = "";
+    }      
     Category.insert(categ);
   });
 }
